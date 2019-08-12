@@ -1,4 +1,3 @@
 # defcon27-4grouters
-Stuff for 4G routers presented at Defcon27
+PoCs for 4G router RE/exploit talk presented at Defcon27
 
-Content updated soon!
